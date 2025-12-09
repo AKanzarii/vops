@@ -23,7 +23,7 @@ pipeline {
         NEXUS_PASS = 'admin'
         
         // Docker configuration
-        DOCKER_IMAGE = 'naderite/eventsproject'
+        DOCKER_IMAGE = 'kanzari199/vops'
         DOCKER_TAG = "${BUILD_NUMBER}"
         
         // Auto-incrementing version: 1.0.BUILD_NUMBER
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/naderite/projet-devops.git'
+                git branch: 'main', url: 'https://github.com/AKanzarii/vops.git'
             }
         }
 
