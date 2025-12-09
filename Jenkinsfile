@@ -241,13 +241,13 @@ echo "Docker images pushed successfully!"
 set -euo pipefail
 
 # Stop and remove existing containers if any
-docker-compose down --remove-orphans || true
+docker compose down --remove-orphans || true
 
 # Pull latest images and start all services
 export DOCKER_IMAGE=${DOCKER_IMAGE}
 export DOCKER_TAG=${DOCKER_TAG}
 
-docker-compose up -d
+docker compose up -d
 
 # Wait for services to be healthy
 echo "Waiting for services to start..."
@@ -255,7 +255,7 @@ sleep 30
 
 # Check if all containers are running
 echo "=== Container Status ==="
-docker-compose ps
+docker compose ps
 
 # Verify application health
 APP_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8089/events/actuator/health || echo "000")
